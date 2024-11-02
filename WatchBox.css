@@ -1,10 +1,30 @@
+/* FONTS */
+
+.carrois-gothic-sc-regular {
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .rye-regular {
+    font-family: "Rye", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .ewert-regular {
+    font-family: "Ewert", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+      
+
+
 /* GENERAL SETTINGS */
 
 * {
     border:0;
     margin:0;
     box-sizing: border-box;
-    outline: 1px solid red;
+    /* outline: 2px dashed blue; */
 }
 
 html {
@@ -15,6 +35,45 @@ body {
     background-image: url("images/brown_vintage_background.jpg");
     background-size: 100% 100%;
     background-attachment: fixed;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 13rem); 
+    font-family: "Rye", serif;
+    text-transform: uppercase;
+    color: #414141;
+    mix-blend-mode:color-burn;   
+    text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #afafaf,
+    -0.05em 0.05em 0.1em #959595, -0.1em 0.1em 0.3em #999999,
+    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: clamp(1.2rem, 4vw, 3rem); 
+    font-family: "Rye", serif;
+    text-transform: uppercase;
+    color: #2d2d2d;
+    mix-blend-mode:color-burn;   
+    text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #afafaf,
+    -0.05em 0.05em 0.1em #959595, -0.1em 0.1em 0.3em #999999,
+    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);    
+}
+
+h3 {
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-family: "Carrois Gothic SC", sans-serif;
+    color: #2d2d2d;
+    mix-blend-mode:color-burn;   
+    text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #afafaf,
+    -0.05em 0.05em 0.1em #959595, -0.1em 0.1em 0.3em #999999,
+    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+}
+
+h4 {
+    font-size: clamp(0.8rem, 1.4vw, 2rem);
+    font-family: "Carrois Gothic SC", sans-serif;
+    padding-top:10px;
+    text-transform: lowercase;
 }
 
 .wrapper {
@@ -29,14 +88,14 @@ body {
     display: grid;
     justify-content: center;
     align-items: start; 
-    row-gap: 50px;   
-    width:90vw;
+    row-gap: 3vw;   
+    width:80vw;
     height:auto;
     margin-top:20px;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: min-content;
     background-image: url("images/istockphoto-471799678-612x612.jpg");
-    background-size: 100% 100%;
+    background-blend-mode:darken;
     background-repeat: repeat;
 }
 
@@ -44,12 +103,12 @@ body {
 
 .header {
     grid-column: span 2;
-    font-size: clamp(1.5rem, 4vw, 4rem);
-    color: darkgoldenrod;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px gold;
     text-align: center;
-    padding-top: 10vh;
+    padding: 20px 20px 0px 20px;
+}
+
+.header:first-child {
+    padding-top: 6vh;
 }
 
 /* NAVIGATION */
@@ -64,34 +123,27 @@ nav {
     flex-wrap: wrap;
     justify-content:space-evenly;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     text-transform: uppercase;
 }
 
-nav a {
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
+button, nav a {
+    font-family: "Carrois Gothic SC", sans-serif;    
+    font-size: clamp(0.8rem, 1.5vw, 2rem);
     font-weight: normal;
-    color: darkblue;
-    text-decoration: none;
+    color: rgb(34, 10, 0);
+    text-decoration:none;
+    font-weight: bold;
     transition: color 0.3s ease;
-    padding: 0px 20px;
-    border-radius:8px;
+    padding: 2vw;
+    background-image: url("images/Brass_CTA.png");
+    background-size: 100% 100%;
+    box-shadow: 5px 5px 5px #000000b9;
 }
 
 nav a:hover,
 nav a:focus-visible {
-font-weight: bold;
-}
-
-/* SUBHEADER */
-
-.subheader {
-    grid-column: span 2;
-    font-size: clamp(1rem, 2vw, 2rem);
-    color: darkgoldenrod;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px gold;
-    text-align: center;
+    text-decoration: underline;
 }
 
 /* SHELVES */
@@ -100,35 +152,56 @@ font-weight: bold;
     grid-column: span 2;
     display: grid;
     align-items: start;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(120px, 1fr) 1fr minmax(120px, 1fr) 1fr;
     grid-auto-rows: min-content;    
     width:100%;    
     justify-content:space-around;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 2vw;
+    padding: 2vw;
 }
 
 .watchStandArea {
+    grid-column: span 2; 
+    grid-row: span 2;   
     display: grid;
-    background-color: rgba(127, 169, 206, 0.495);
+
     justify-content:flex-start;
     align-items: start;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;    
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;    
     width:100%;
-    gap: 2rem;
+
+    gap: 0 1rem;
 }
+
+
 
 .watchShelf { 
     grid-column: 1 / 2;
-    max-width:300px;
+    grid-row: span 3;
+    align-self: stretch;      
     width:100%;
+    min-width:110px;
     height:auto;
+    background-image: url("images/WatchBoxBackground.png"); 
+    background-size: 100% 100%;
+    padding:2vw;
+    object-fit: scale-down;
 }
 
 .watchInfo { 
     grid-column: 2 / 3;
+    grid-row: span 3;
+    align-self: stretch;    
     width:auto;
-    height:auto;
+    height:auto;   
+}
+
+@media (width < 900px) {
+    .shelves { 
+        grid-template-columns: repeat(2, 1fr);}
+    .watchShelf {
+        padding:4vw;
+    }       
 }
