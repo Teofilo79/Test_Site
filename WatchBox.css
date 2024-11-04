@@ -37,15 +37,17 @@ body {
     background-attachment: fixed;
 }
 
+
+
 h1 {
     font-size: clamp(2rem, 6vw, 13rem); 
     font-family: "Rye", serif;
     text-transform: uppercase;
-    color: #414141;
-    mix-blend-mode:color-burn;   
-    text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #afafaf,
-    -0.05em 0.05em 0.1em #959595, -0.1em 0.1em 0.3em #999999,
-    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+    color: #f3db86;
+    mix-blend-mode: darken;
+    text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #000,
+      -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
+      -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
 }
 
 h2 {
@@ -73,7 +75,6 @@ h4 {
     font-size: clamp(0.8rem, 1.4vw, 2rem);
     font-family: "Carrois Gothic SC", sans-serif;
     padding-top:10px;
-    text-transform: lowercase;
 }
 
 .wrapper {
@@ -81,6 +82,7 @@ h4 {
     justify-content: center;
     align-items: center;
 }
+
 
 /* THE BOX */
 
@@ -136,9 +138,12 @@ button, nav a {
     font-weight: bold;
     transition: color 0.3s ease;
     padding: 2vw;
-    background-image: url("images/Brass_CTA.png");
-    background-size: 100% 100%;
+    border-image: url("images/Brass_CTA.png") 46 fill / 20px;
     box-shadow: 5px 5px 5px #000000b9;
+}
+
+button {
+   width:100%;
 }
 
 nav a:hover,
@@ -157,7 +162,7 @@ nav a:focus-visible {
     width:100%;    
     justify-content:space-around;
     align-items: center;
-    gap: 2vw;
+    gap: 4vw;
     padding: 2vw;
 }
 
@@ -184,17 +189,35 @@ nav a:focus-visible {
     width:100%;
     min-width:110px;
     height:auto;
-    /* background-image: url("images/WatchBoxBackground.png"); 
-    background-size: 100% 100%; */
+    background-image: url("images/WatchBoxBackground.png"); 
+    background-size: 100% 100%;
     padding:2vw;
     object-fit: scale-down;
-    filter:sepia(40%) drop-shadow(8px 8px 10px rgb(20, 20, 20));
+    /* filter:drop-shadow(8px 8px 10px rgb(20, 20, 20)); */
 }
 
 .watchShelf:hover {
-    filter:contrast(120%) brightness(110%) drop-shadow(0px 0px 50px rgb(255, 248, 209));
-    transform: scale(1.3);
-    transition: all ease-out 1s;
+    filter:saturate(120%) contrast(110%) brightness(110%);
+    transition: all ease-out 0.5s;
+}
+
+.watchShelf:hover ~ div > ul > li {
+    filter:saturate(120%) contrast(110%) brightness(110%);
+    transition: all ease-out 0.5s;
+}
+
+.watchShelf:hover ~ div ul {
+    display: flex;
+    transition: all ease-out 0.5s;
+}
+
+.watchShelf:hover ~ div > button {
+    color:black;
+    text-shadow: 2px 2px 2px gold;
+}
+
+.watchShelf:hover ~ div > h4 {
+    display:none;
 }
 
 .watchInfo { 
@@ -205,6 +228,33 @@ nav a:focus-visible {
     height:auto;   
 }
 
+.watchInfo ul {
+    padding:20px 0px;
+    display: none;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    align-items: center;
+    gap:0.5vw;
+    border-image: url("images/Brass_CTA.png") 40 fill / 20px;
+    box-shadow: 5px 5px 5px #000000b9;  
+    margin-top:4px;
+    padding: 20px;
+}
+
+.watchInfo li {
+    list-style: none;
+    font-size: clamp(0.8rem, 1vw, 2rem);
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-weight: bold;
+    padding:2px 10px;
+    text-transform: lowercase;
+    border-radius: 100px;
+    border: 0px solid transparent;
+    background-color:#f6d08f;
+    box-shadow: 0px 0px 8px inset black;
+    filter:drop-shadow(3px 3px 4px black);
+}
+
 @media (width < 900px) {
     .shelves { 
         grid-template-columns: repeat(2, 1fr);}
@@ -212,3 +262,5 @@ nav a:focus-visible {
         padding:4vw;
     }       
 }
+
+
