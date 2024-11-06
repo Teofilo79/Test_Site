@@ -73,7 +73,8 @@ h3 {
 
 h4 {
     font-size: clamp(0.8rem, 1.4vw, 2rem);
-    font-family: "Carrois Gothic SC", sans-serif;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
     padding-top:10px;
 }
 
