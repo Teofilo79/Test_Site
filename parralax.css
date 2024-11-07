@@ -29,10 +29,10 @@
 
   @keyframes animation_for_images {
     20% {
-      transform: rotateX(-2deg);
+      transform: rotateX(-8deg);
     }
     100% {
-      transform: rotateX(2deg);
+      transform: rotateX(4deg);
     }
   }   
 
@@ -98,7 +98,7 @@ body {
     overflow-y:auto;
     perspective:200px;
     scrollbar-width: none;
-    scroll-snap-type: y mandatory;
+    /* scroll-snap-type: y mandatory; */
     overflow-y: scroll;
 }
 
@@ -111,7 +111,7 @@ body {
     align-items:center;
     text-align: center;  
     font-size: 2em;
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
 }
 
 .intro_screen {
@@ -148,6 +148,7 @@ body {
 .parralax_layer img {
     width:100%;
     object-fit: cover;
+    filter: drop-shadow(5px 5px 5px black);
 }
 
     .layer_6 {
