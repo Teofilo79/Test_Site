@@ -3,7 +3,66 @@
     font-weight: 400;
     font-style: normal;
   }
+
+
   
+  @keyframes appear {
+    from {
+      /* opacity: 0; */
+      transform: translateY(200px);
+    }
+  
+    to {
+      /* opacity: 1; */
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes away {
+    60% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(30deg);
+    }
+  }  
+
+  @keyframes animation_for_images {
+    20% {
+      transform: rotateX(-2deg);
+    }
+    100% {
+      transform: rotateX(2deg);
+    }
+  }   
+
+  .animation_appear {
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: appear;
+    animation-range: cover 20% cover 90%;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }  
+
+  .animation_away {
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: away;
+    animation-range: cover 20% cover 90%;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }    
+
+  .animation_for_images {
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: animation_for_images;
+    animation-range: cover 0% cover 100%;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }     
+
 body {
     margin:0;
     padding:0;
@@ -27,7 +86,7 @@ body {
     overflow-x:hidden;
     overflow-y:auto;
     perspective:100px;
-    background-color: antiquewhite;
+    background-image:url('images/2588.jpg');
     border-radius: 20px;
     scrollbar-width: none;
 }
@@ -39,6 +98,8 @@ body {
     overflow-y:auto;
     perspective:200px;
     scrollbar-width: none;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
 
 .image_title {
@@ -50,6 +111,7 @@ body {
     align-items:center;
     text-align: center;  
     font-size: 2em;
+    scroll-snap-align: start;
 }
 
 .intro_screen {
@@ -78,6 +140,9 @@ body {
     align-items:center;
     /* background-color: rgba(127, 255, 212, 0.514); */
     font-size: 2em;
+    animation: fly-there-baby 1s;
+    animation-timeline: scroll();
+    animation-range: entry 0% contain 80%;        
 }
 
 .parralax_layer img {
@@ -106,5 +171,3 @@ body {
         outline: 14px solid white;
         filter: drop-shadow(10px 10px 10px black);
     }     
-
-
